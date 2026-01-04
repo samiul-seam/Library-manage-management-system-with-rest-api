@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-#l)6om!bbo020zzp5t(ke(2=1uklp6ghdbb7eynty^x8dgw4ed
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".vercel.app", '127.0.0.1']
+ALLOWED_HOSTS = [".vercel.app", "127.0.0.1"]
 AUTH_USER_MODEL = 'user.User'
 
 
@@ -73,7 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'lib_management.wsgi.app'
-
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -143,11 +142,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING' : False,
