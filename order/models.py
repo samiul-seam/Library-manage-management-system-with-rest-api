@@ -8,7 +8,7 @@ from book.models import Book
 from django.core.validators import MinValueValidator
 from django.utils import timezone
 from datetime import timedelta
-
+ 
 
 # Create your models here.
 
