@@ -7,7 +7,7 @@ class SimpleBookSerializer(serializers.ModelSerializer):
         model = Book
         fields = ['id', 'title', 'isbn', 'is_available']
   
-
+ 
 class AddBorrowBookSerializer(serializers.ModelSerializer):
     book_id = serializers.IntegerField()
 
@@ -39,7 +39,7 @@ class AddBorrowBookSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(f"Book '{Book.objects.get(pk=value).title}' is not available")
         return value
 
-
+ 
 class BorrowBookSerializer(serializers.ModelSerializer):
     book = SimpleBookSerializer()
     total_books = serializers.SerializerMethodField(method_name='get_total_books')
@@ -63,9 +63,11 @@ class BorrowSerializer(serializers.ModelSerializer):
     user_name = serializers.CharField(source='user.first_name', read_only=True)
     total_books = serializers.SerializerMethodField(method_name='get_total_books')
 
+
     class Meta:
         model = Borrow
         fields = ['id', 'user', 'user_name', 'borrowbooks', 'total_books']
+        read_only_fields = ['user']
 
     def get_total_books(self, borrow: Borrow):
         return sum([item.quantity for item in borrow.borrowbooks.all()])

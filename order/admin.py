@@ -6,4 +6,4 @@ from .models import Borrow , BorrowBook
 class BorrowAdmin(admin.ModelAdmin):
     list_display = ['id', 'user']
 
-admin.site.register(BorrowBook)
+admin.site.register(BorrowBook) 
