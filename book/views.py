@@ -157,7 +157,7 @@ class BookViewSet(ModelViewSet):
 
 class BookImageViewSet(ModelViewSet):
     serializer_class = BookImageSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsLibrarainOrReadOnly]
 
     def get_queryset(self):
         return BookImages.objects.filter(book_id=self.kwargs.get('book_pk'))
